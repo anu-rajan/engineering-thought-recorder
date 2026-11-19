@@ -36,6 +36,18 @@ For example:
 
 The objective is not simply to produce the latest design document, but to retain the context of how and why the design changed.
 
+
+### Design decision evolution — actual POC output
+
+The screenshot below shows the output of a real POC execution.
+
+The AI-assisted design capture process identifies a change from synchronous to asynchronous document processing and preserves both the original and revised decisions with timestamps.
+
+![Design decision evolution showing the current decision and its thought history](docs/screenshots/design-decision-evolution.png)
+
+*Actual IntelliJ console output from the Engineering Thought Recorder POC.*
+
+
 ## Technology stack
 
 - Java and Spring Boot
