@@ -1,0 +1,16 @@
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: engineering-thought-recorder-db
+    environment:
+      POSTGRES_DB: engineering_thought_recorder
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD before starting Docker Compose}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

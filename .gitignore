@@ -1,0 +1,60 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Local application data
+/data/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local configuration overrides
+application-local.properties
+application-local.yml
+application-local.yaml
+
+# Archives and temporary files
+*.zip
+*.log
+.DS_Store
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated output
+/output/
+/generated/
