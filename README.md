@@ -20,7 +20,7 @@ This is a hands-on engineering experiment, not a production-ready application.
 - Capturing functional and non-functional requirements, assumptions, decisions, and open questions.
 - Tracking how design decisions change as new information emerges.
 - Generating a readable design document from the captured information.
-
+- Persisting the complete design session as structured JSON, including timestamped transcripts, current design items, and their thought histories.
 The project also contains components for experimenting with speech-to-text transcription.
 
 ## Example scenario
@@ -37,6 +37,18 @@ For example:
 The objective is not simply to produce the latest design document, but to retain the context of how and why the design changed.
 
 
+### Structured design capture — actual POC output
+
+The Engineering Thought Recorder transforms a timestamped engineering discussion into a structured design draft.
+
+In this Document Upload Service example, the POC captured 5 functional requirements, 3 nonfunctional requirements, 2 assumptions, 3 design decisions, and 2 open questions.
+
+The complete session, including its transcript and thought histories, is also persisted as JSON for further inspection.
+
+![Structured design output showing requirements, assumptions, decisions, and open questions](docs/screenshots/structured-design-output.png)
+
+*Actual JSON output from the Engineering Thought Recorder POC, displayed in IntelliJ.*
+
 ### Design decision evolution — actual POC output
 
 The screenshot below shows the output of a real POC execution.
@@ -46,6 +58,24 @@ The AI-assisted design capture process identifies a change from synchronous to a
 ![Design decision evolution showing the current decision and its thought history](docs/screenshots/design-decision-evolution.png)
 
 *Actual IntelliJ console output from the Engineering Thought Recorder POC.*
+
+
+
+### Architecture evolution — actual POC output
+
+The POC captures how architectural decisions evolve during an engineering discussion.
+
+In this Document Upload Service example, the design progressed through three stages:
+
+1. Initially, documents were to be processed synchronously within the upload request.
+2. The approach changed to asynchronous processing using background workers.
+3. A message queue was introduced to distribute processing jobs to those workers.
+
+The final design decision and all three original thoughts are preserved together in the generated JSON, including their timestamp ranges.
+
+![Architecture evolution from synchronous to asynchronous document processing](docs/screenshots/architecture-evolution.png)
+
+*Actual JSON output showing the evolution of an architectural decision and its recorded thought history.*
 
 
 ## Technology stack

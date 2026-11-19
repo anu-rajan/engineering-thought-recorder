@@ -4,6 +4,8 @@ import com.anu.engineeringthoughtrecorder.domainObjects.Transcript;
 import com.anu.engineeringthoughtrecorder.domainObjects.domainUtils.TranscriptSegment;
 import com.anu.engineeringthoughtrecorder.domainObjects.domainUtils.TimestampRange;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.time.Instant;
 
 import com.anu.engineeringthoughtrecorder.domainObjects.DesignSession;
@@ -29,7 +31,7 @@ import com.anu.engineeringthoughtrecorder.peripherals.GroqSpeechToTextService;
  */
 public class DocumentUploadPOCTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // Create the transcript for our engineering design meeting.
         Transcript transcript = new Transcript();
@@ -370,6 +372,12 @@ public class DocumentUploadPOCTest {
 
 // Display the resulting draft and thought histories.
         DesignSessionPrinter.printSession(session);
+
+        // Persist the complete design session as JSON.
+        DesignSessionJsonWriter.writeSession(
+                session,
+                Path.of("data/output/document-upload-design.json")
+        );
         System.out.println(
                 "Document Upload Service - End-to-End POC"
         );
